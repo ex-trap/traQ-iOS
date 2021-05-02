@@ -62,14 +62,14 @@ enum traQShareError: Error {
 
 class ShareViewController: SLComposeServiceViewController, traQChannelTableDelegate {
     
-    private let suiteName = "group.tech.trapti.traQ"
+    private let suiteName = "group.jp.trap.ex.traQ"
     private let sessionKey = "traq_session"
     private let channelNameKey = "traq_share_channel_name"
     private let channelIdKey = "traq_share_channel_id"
     
     private let sessionCookieName = "r_session"
     
-    private var apiRoot = "https://q.trap.jp/api/v3"
+    private var apiRoot = "https://q.ex.trap.jp/api/v3"
     private let channelIdPlaceholder = "{channelID}"
     private let postMessageUrl = "/channels/{channelID}/messages"
     private let getChannelsUrl = "/channels"

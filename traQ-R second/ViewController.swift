@@ -20,9 +20,9 @@ class ViewController: UIViewController {
 
     var webView: WKWebView!
     var openKeyboard: Bool! = false
-    var host: String = "q.trap.jp"
+    var host: String = "q.ex.trap.jp"
     
-    private let suiteName = "group.tech.trapti.traQ"
+    private let suiteName = "group.jp.trap.ex.traQ"
     private let sessionKey = "traq_session"
     private let sessionCookieName = "r_session"
     private let scriptMessageHandlerName = "scriptMessageHandler"

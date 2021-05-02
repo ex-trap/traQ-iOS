@@ -14,7 +14,8 @@
 		B9A555B223338309005D1419 /* traQShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B9A555A823338309005D1419 /* traQShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B9A555B92334506F005D1419 /* ShareExtensionPageTitleProcessor.js in Resources */ = {isa = PBXBuildFile; fileRef = B9A555B82334506F005D1419 /* ShareExtensionPageTitleProcessor.js */; };
 		B9AA5B8E262EE98E002794FC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = B9AA5B8D262EE98E002794FC /* FirebaseMessaging */; };
-		B9BCE4F32449549800A4472E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9BCE4F22449549800A4472E /* GoogleService-Info.plist */; };
+		E59B11C8263F311A00495F11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E59B11C7263F311A00495F11 /* GoogleService-Info.plist */; };
+		E59B11C9263F311A00495F11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E59B11C7263F311A00495F11 /* GoogleService-Info.plist */; };
 		E5E7B6D62224F70400B5B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B6D52224F70400B5B575 /* AppDelegate.swift */; };
 		E5E7B6D82224F70400B5B575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B6D72224F70400B5B575 /* ViewController.swift */; };
 		E5E7B6DB2224F70400B5B575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E7B6D92224F70400B5B575 /* Main.storyboard */; };
@@ -55,7 +56,7 @@
 		B9A555AF23338309005D1419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9A555B723338523005D1419 /* traQShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = traQShareExtension.entitlements; sourceTree = "<group>"; };
 		B9A555B82334506F005D1419 /* ShareExtensionPageTitleProcessor.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ShareExtensionPageTitleProcessor.js; sourceTree = "<group>"; };
-		B9BCE4F22449549800A4472E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E59B11C7263F311A00495F11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5E7B6D22224F70400B5B575 /* traQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E7B6D52224F70400B5B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E7B6D72224F70400B5B575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E5E7B6E72224F74600B5B575 /* traQ-R second.entitlements */,
-				B9BCE4F22449549800A4472E /* GoogleService-Info.plist */,
+				E59B11C7263F311A00495F11 /* GoogleService-Info.plist */,
 				E5E7B6D52224F70400B5B575 /* AppDelegate.swift */,
 				E5E7B6D72224F70400B5B575 /* ViewController.swift */,
 				E5E7B6D92224F70400B5B575 /* Main.storyboard */,
@@ -242,6 +243,7 @@
 			files = (
 				B9A555B92334506F005D1419 /* ShareExtensionPageTitleProcessor.js in Resources */,
 				B9A555AE23338309005D1419 /* MainInterface.storyboard in Resources */,
+				E59B11C9263F311A00495F11 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E7B6E02224F70B00B5B575 /* LaunchScreen.storyboard in Resources */,
-				B9BCE4F32449549800A4472E /* GoogleService-Info.plist in Resources */,
+				E59B11C8263F311A00495F11 /* GoogleService-Info.plist in Resources */,
 				E5E7B6DD2224F70B00B5B575 /* Assets.xcassets in Resources */,
 				E5E7B6DB2224F70400B5B575 /* Main.storyboard in Resources */,
 			);
@@ -331,7 +333,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 3.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.trapti.traQ.traQShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.trap.ex.traQ.traQShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -354,7 +356,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 3.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.trapti.traQ.traQShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.trap.ex.traQ.traQShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -496,7 +498,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.trapti.traQ;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.trap.ex.traQ;
 				PRODUCT_NAME = traQ;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -519,7 +521,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.trapti.traQ;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.trap.ex.traQ;
 				PRODUCT_NAME = traQ;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
