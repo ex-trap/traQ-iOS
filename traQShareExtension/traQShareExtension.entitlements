@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.tech.trapti.traQ</string>
+		<string>group.jp.trap.ex.traQ</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
