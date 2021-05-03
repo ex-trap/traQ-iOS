@@ -57,7 +57,7 @@
 		B9A555B723338523005D1419 /* traQShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = traQShareExtension.entitlements; sourceTree = "<group>"; };
 		B9A555B82334506F005D1419 /* ShareExtensionPageTitleProcessor.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ShareExtensionPageTitleProcessor.js; sourceTree = "<group>"; };
 		E59B11C7263F311A00495F11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E5E7B6D22224F70400B5B575 /* traQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E7B6D22224F70400B5B575 /* ex-traQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ex-traQ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E7B6D52224F70400B5B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E7B6D72224F70400B5B575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5E7B6DA2224F70400B5B575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		E5E7B6D32224F70400B5B575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5E7B6D22224F70400B5B575 /* traQ.app */,
+				E5E7B6D22224F70400B5B575 /* ex-traQ.app */,
 				B9A555A823338309005D1419 /* traQShareExtension.appex */,
 			);
 			name = Products;
@@ -172,7 +172,7 @@
 				B9AA5B8D262EE98E002794FC /* FirebaseMessaging */,
 			);
 			productName = "traQ-R second";
-			productReference = E5E7B6D22224F70400B5B575 /* traQ.app */;
+			productReference = E5E7B6D22224F70400B5B575 /* ex-traQ.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -504,7 +504,7 @@
 				);
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.trap.ex.traQ;
-				PRODUCT_NAME = traQ;
+				PRODUCT_NAME = "ex-traQ";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore jp.trap.ex.traQ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,7 +529,7 @@
 				);
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.trap.ex.traQ;
-				PRODUCT_NAME = traQ;
+				PRODUCT_NAME = "ex-traQ";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore jp.trap.ex.traQ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
