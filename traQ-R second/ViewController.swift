@@ -32,8 +32,8 @@ class ViewController: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        // 2021-04-23T00:00:00+09:00
-        if (Date() < Date.init(timeIntervalSince1970: 1619103600)) {
+        // 2021-05-10T00:00:00+09:00
+        if (Date() < Date.init(timeIntervalSince1970: 1620572400)) {
             host = "traq-s-dev.tokyotech.org"
         }
         let userController = WKUserContentController()
