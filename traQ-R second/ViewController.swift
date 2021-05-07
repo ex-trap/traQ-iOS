@@ -21,11 +21,13 @@ class ViewController: UIViewController {
     var webView: WKWebView!
     var openKeyboard: Bool! = false
     var host: String = "q.ex.trap.jp"
+    var isLogin: Bool! = false
     
     private let suiteName = "group.jp.trap.ex.traQ"
     private let sessionKey = "traq_session"
     private let sessionCookieName = "r_session"
-    private let scriptMessageHandlerName = "scriptMessageHandler"
+    private let requestMediaPermissionHandlerName = "scriptMessageHandler"
+    private let setLoginStatusHandlerName = "setLoginStatusHandler"
 
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -36,9 +38,12 @@ class ViewController: UIViewController {
         }
         let userController = WKUserContentController()
         if #available(iOS 14, *) {
-            userController.addScriptMessageHandler(self, contentWorld: .page, name: scriptMessageHandlerName)
+            userController.addScriptMessageHandler(self, contentWorld: .page, name: requestMediaPermissionHandlerName)
+            userController.addScriptMessageHandler(self, contentWorld: .page, name:
+                setLoginStatusHandlerName)
         } else {
-            userController.add(self, name: scriptMessageHandlerName)
+            userController.add(self, name: requestMediaPermissionHandlerName)
+            userController.add(self, name: setLoginStatusHandlerName)
         }
 
         let webConfiguration = WKWebViewConfiguration()
@@ -102,7 +107,7 @@ class ViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        webView.configuration.userContentController.removeScriptMessageHandler(forName: scriptMessageHandlerName)
+        webView.configuration.userContentController.removeScriptMessageHandler(forName: requestMediaPermissionHandlerName)
     }
 
     override func viewDidLayoutSubviews() {
@@ -148,7 +153,7 @@ extension ViewController: WKUIDelegate {
                  decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let url = navigationAction.request.url
-        if url?.host != self.host {
+        if isLogin && url?.host != self.host {
             decisionHandler(.cancel)
             UIApplication.shared.open(url!)
         } else {
@@ -207,11 +212,17 @@ extension ViewController: WKUIDelegate {
 }
 
 extension ViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        self.webView.evaluateJavaScript("window.iOSToken = 'No Token'")
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("読み込み完了")
-        Messaging.messaging().token{ (token, error) in
-            print(token ?? "No Token")
-            self.webView.evaluateJavaScript("window.iOSToken = '" + (token ?? "") + "'")
+        if (webView.url?.host! == self.host) {
+            Messaging.messaging().token{ (token, error) in
+                print(token ?? "No Token")
+                self.webView.evaluateJavaScript("window.iOSToken = '" + (token ?? "No Token") + "'")
+            }
         }
     }
 
@@ -219,15 +230,30 @@ extension ViewController: WKNavigationDelegate {
 
 extension ViewController: WKScriptMessageHandlerWithReply {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage, replyHandler: @escaping (Any?, String?) -> Void) {
-        guard message.name == scriptMessageHandlerName else {
-            return
-        }
-        switch UserControllerMessage.init(rawValue: "\(message.body)") {
-        case .RequestMicrophone:
-            grantAVPermission(for: .audio) { result in replyHandler(result, nil) }
-        case .RequestCamera:
-            grantAVPermission(for: .video) { result in replyHandler(result, nil) }
-        case .none:
+        switch message.name {
+        case requestMediaPermissionHandlerName:
+            switch UserControllerMessage.init(rawValue: "\(message.body)") {
+            case .RequestMicrophone:
+                grantAVPermission(for: .audio) { result in return }
+            case .RequestCamera:
+                grantAVPermission(for: .video) { result in return }
+            case .none:
+                return
+            }
+            replyHandler(true, nil)
+            break
+            
+        case setLoginStatusHandlerName:
+            if let loginStatus = message.body as? Bool {
+                isLogin = loginStatus
+            } else {
+                isLogin = false
+            }
+            replyHandler(true, nil)
+            break
+            
+        default:
+            replyHandler(false, nil)
             return
         }
     }
@@ -235,15 +261,25 @@ extension ViewController: WKScriptMessageHandlerWithReply {
 
 extension ViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard message.name == scriptMessageHandlerName else {
-            return
-        }
-        switch UserControllerMessage.init(rawValue: "\(message.body)") {
-        case .RequestMicrophone:
-            grantAVPermission(for: .audio) { result in return }
-        case .RequestCamera:
-            grantAVPermission(for: .video) { result in return }
-        case .none:
+        switch message.name {
+        case requestMediaPermissionHandlerName:
+            switch UserControllerMessage.init(rawValue: "\(message.body)") {
+            case .RequestMicrophone:
+                grantAVPermission(for: .audio) { result in return }
+            case .RequestCamera:
+                grantAVPermission(for: .video) { result in return }
+            case .none:
+                return
+            }
+            
+        case setLoginStatusHandlerName:
+            if let loginStatus = message.body as? Bool {
+                isLogin = loginStatus
+            } else {
+                isLogin = false
+            }
+            
+        default:
             return
         }
     }
